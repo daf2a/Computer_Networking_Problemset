@@ -1,4 +1,4 @@
-# Problemsets for Computer Networking: A Top-Down Approach, 7th Edition
+# Problem Set for Computer Networking: A Top-Down Approach, 7th Edition
 source : [https://gaia.cs.umass.edu/kurose\_ross/knowledgechecks/index.php](https://gaia.cs.umass.edu/kurose_ross/knowledgechecks/index.php)
 
 # Table of contents
