@@ -1,6 +1,5 @@
-# Computer Networking: A Top-Down Approach
-This repository contains the solutions to the knowledge checks and interactive implementations of the book **Computer Networking: A Top-Down Approach** by James F. Kurose and Keith W. Ross.
-Problemset was taken from [here](https://gaia.cs.umass.edu/kurose_ross/).
+# Problemsets for Computer Networking: A Top-Down Approach, 7th Edition
+source : [https://gaia.cs.umass.edu/kurose\_ross/knowledgechecks/index.php](https://gaia.cs.umass.edu/kurose_ross/knowledgechecks/index.php)
 
 # Table of contents
 - [Knowledge Checks](#knowledge-checks)
@@ -29,7 +28,7 @@ Problemset was taken from [here](https://gaia.cs.umass.edu/kurose_ross/).
     - [TCP Congestion Control](#tcp-congestion-control)
     - [Evolution of Transport Layer Functionality](#evolution-of-transport-layer-functionality)
 - [Interactive Implementation](#interactive-implementation)
-  - [**CHAPTER 1: INTRODUCTION**](#chapter-1-introduction-1)
+  - [CHAPTER 1: INTRODUCTION](#chapter-1-introduction-1)
     - [Circuit Switching](#circuit-switching)
     - [Quantitative Comparison of Packet Switching and Circuit Switching](#quantitative-comparison-of-packet-switching-and-circuit-switching)
     - [Car - Caravan Analogy](#car---caravan-analogy)
@@ -38,7 +37,7 @@ Problemset was taken from [here](https://gaia.cs.umass.edu/kurose_ross/).
     - [End-to-End Delay](#end-to-end-delay)
     - [End-to-End Throughput](#end-to-end-throughput)
     - [The IP Stack and Protocol Layering](#the-ip-stack-and-protocol-layering)
-  - [**CHAPTER 2: APPLICATION LAYER**](#chapter-2-application-layer)
+  - [CHAPTER 2: APPLICATION LAYER](#chapter-2-application-layer-1)
     - [DNS - Basics](#dns---basics)
     - [DNS - Iterative vs Recursive Query](#dns---iterative-vs-recursive-query)
     - [DNS and HTTP delays](#dns-and-http-delays)
@@ -47,7 +46,7 @@ Problemset was taken from [here](https://gaia.cs.umass.edu/kurose_ross/).
     - [Browser Caching](#browser-caching)
     - [Electronic Mail and SMTP](#electronic-mail-and-smtp)
     - [A comparison of client-server and P2P file distribution delays](#a-comparison-of-client-server-and-p2p-file-distribution-delays)
-  - [**CHAPTER 3: TRANSPORT LAYER**](#chapter-3-transport-layer)
+  - [CHAPTER 3: TRANSPORT LAYER](#chapter-3-transport-layer-1)
     - [Internet checksum](#internet-checksum)
     - [Reliable data transfer: rdt22](#reliable-data-transfer-rdt22)
     - [Reliable data transfer: rdt30](#reliable-data-transfer-rdt30)
@@ -57,23 +56,23 @@ Problemset was taken from [here](https://gaia.cs.umass.edu/kurose_ross/).
     - [TCP retransmissions](#tcp-retransmissions)
     - [UDP Mux and Demux](#udp-mux-and-demux)
     - [TCP Mux and Demux](#tcp-mux-and-demux)
-  - [**CHAPTER 4: NETWORK LAYER: DATA PLANE**](#chapter-4-network-layer-data-plane)
+  - [CHAPTER 4: NETWORK LAYER: DATA PLANE](#chapter-4-network-layer-data-plane)
     - [Longest Prefix Matching](#longest-prefix-matching)
     - [Packet Scheduling](#packet-scheduling)
     - [Subnet Addressing](#subnet-addressing)
     - [Network Address Translation](#network-address-translation)
     - [IPv6 Tunneling and Encapsulation](#ipv6-tunneling-and-encapsulation)
     - [Openflow Flow Tables](#openflow-flow-tables)
-  - [**CHAPTER 5: NETWORK LAYER: CONTROL PLANE**](#chapter-5-network-layer-control-plane)
+  - [CHAPTER 5: NETWORK LAYER: CONTROL PLANE](#chapter-5-network-layer-control-plane)
     - [Dijkstra's Link State Algorithm](#dijkstras-link-state-algorithm)
     - [Dijkstra's Link State Algorithm - Advanced](#dijkstras-link-state-algorithm---advanced)
     - [Bellman Ford Distance Vector algorithm](#bellman-ford-distance-vector-algorithm)
-  - [**CHAPTER 6: LINK LAYER**](#chapter-6-link-layer)
+  - [CHAPTER 6: LINK LAYER](#chapter-6-link-layer)
     - [Error Detection and Correction: Two Dimensional Parity](#error-detection-and-correction-two-dimensional-parity)
     - [Error Detection and Correction: Cyclic Redundancy Check](#error-detection-and-correction-cyclic-redundancy-check)
     - [Random Access Protocols: Aloha](#random-access-protocols-aloha)
-    - [Random Access Protocols: Collisions](#random-access-protocols-collisions)
-    - [Link Layer (and network layer) addressing, forwarding](#link-layer-and-network-layer-addressing-forwarding)
+    - [Multiple Access Protocols: Collisions](#multiple-access-protocols-collisions)
+    - [Link Layer (and network layer) addressing, forwarding](#link-layer-and-network-layer-addressing-and-forwarding)
     - [Learning Switches - Basic](#learning-switches---basic)
     - [Learning Switches - Advanced](#learning-switches---advanced)
 
@@ -2431,7 +2430,7 @@ In the scenario below, the left and right TCP clients communicate with a TCP ser
 
 2. The prior node in the path to U is W, and we know the shortest distance of both U (8) and W (3), so 8 - 3 = 5 which is Y.
 
-### ****BELLMAN FORD DISTANCE VECTOR ALGORITHM (FOR COMPUTING LEAST COST PATHS)****
+### ****BELLMAN FORD DISTANCE VECTOR ALGORITHM****
 
 ![Untitled](img/interactive2/Untitled%208.png)
 
