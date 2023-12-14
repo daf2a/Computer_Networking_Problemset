@@ -2,7 +2,8 @@
 source : [https://gaia.cs.umass.edu/kurose\_ross/knowledgechecks/index.php](https://gaia.cs.umass.edu/kurose_ross/knowledgechecks/index.php)
 
 # Table of contents
-- [Knowledge Checks](#knowledge-checks)
+
+- [KNOWLEDGE CHECKS](#knowledge-checks)
   - [CHAPTER 1: INTRODUCTION](#chapter-1-introduction)
     - [What is the Internet? ](#what-is-the-internet)
     - [The Network Edge ](#the-network-edge)
@@ -28,7 +29,7 @@ source : [https://gaia.cs.umass.edu/kurose\_ross/knowledgechecks/index.php](http
     - [TCP Congestion Control](#tcp-congestion-control)
     - [Evolution of Transport Layer Functionality](#evolution-of-transport-layer-functionality)</br>
 
-- [Interactive Implementation](#interactive-implementation)
+- [INTERACTIVE IMPLEMENTATION](#interactive-implementation)
   - [CHAPTER 1: INTRODUCTION](#chapter-1-introduction-1)
     - [Circuit Switching](#circuit-switching)
     - [Quantitative Comparison of Packet Switching and Circuit Switching](#quantitative-comparison-of-packet-switching-and-circuit-switching)
