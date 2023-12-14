@@ -12,14 +12,14 @@ Suggestion: Use light mode for better view of PNG files
     - [Performance: Delay, Loss and Throughput in Computer Networks ](#performance-delay-loss-and-throughput-in-computer-networks)
     - [Protocol layers and Their Service Models](#protocol-layers-and-their-service-models)
     - [Networks under attack](#networks-under-attack)
-    - [History of Computer Networking](#history-of-computer-networking)</br>
+    - [History of Computer Networking](#history-of-computer-networking)</br></br>
   - [CHAPTER 2: APPLICATION LAYER](#chapter-2-application-layer)
     - [Principles of Network Applications ](#principles-of-network-applications)
     - [The Web and HTTP ](#the-web-and-http)
     - [Email ](#email)
     - [The Domain Name Service: DNS ](#the-domain-name-service-dns)
     - [Video Streaming and Content Distribution Networks ](#video-streaming-and-content-distribution-networks)
-    - [Socket Programming: Creating Network Applications ](#socket-programming-creating-network-applications)</br>
+    - [Socket Programming: Creating Network Applications ](#socket-programming-creating-network-applications)</br></br>
   - [CHAPTER 3: TRANSPORT LAYER](#chapter-3-transport-layer)
     - [Introduction and Transport-Layer Services](#introduction-and-transport-layer-services)
     - [Multiplexing and Demultiplexing](#multiplexing-and-demultiplexing)
@@ -28,7 +28,7 @@ Suggestion: Use light mode for better view of PNG files
     - [Connection-Oriented Transport: TCP](#connection-oriented-transport-tcp)
     - [Principles of Congestion Control](#principles-of-congestion-control)
     - [TCP Congestion Control](#tcp-congestion-control)
-    - [Evolution of Transport Layer Functionality](#evolution-of-transport-layer-functionality)</br>
+    - [Evolution of Transport Layer Functionality](#evolution-of-transport-layer-functionality)</br></br>
 
 - [INTERACTIVE IMPLEMENTATION](#interactive-implementation)</br>
   - [CHAPTER 1: INTRODUCTION](#chapter-1-introduction-1)
@@ -39,7 +39,7 @@ Suggestion: Use light mode for better view of PNG files
     - [Queuing Delay](#queuing-delay)
     - [End-to-End Delay](#end-to-end-delay)
     - [End-to-End Throughput](#end-to-end-throughput)
-    - [The IP Stack and Protocol Layering](#the-ip-stack-and-protocol-layering)</br>
+    - [The IP Stack and Protocol Layering](#the-ip-stack-and-protocol-layering)</br></br>
   - [CHAPTER 2: APPLICATION LAYER](#chapter-2-application-layer-1)
     - [DNS - Basics](#dns---basics)
     - [DNS - Iterative vs Recursive Query](#dns---iterative-vs-recursive-query)
@@ -48,7 +48,7 @@ Suggestion: Use light mode for better view of PNG files
     - [HTTP RESPONSE](#http-response)
     - [Browser Caching](#browser-caching)
     - [Electronic Mail and SMTP](#electronic-mail-and-smtp)
-    - [A comparison of client-server and P2P file distribution delays](#a-comparison-of-client-server-and-p2p-file-distribution-delays)</br>
+    - [A comparison of client-server and P2P file distribution delays](#a-comparison-of-client-server-and-p2p-file-distribution-delays)</br></br>
   - [CHAPTER 3: TRANSPORT LAYER](#chapter-3-transport-layer-1)
     - [Internet checksum](#internet-checksum)
     - [Reliable data transfer: rdt22](#reliable-data-transfer-rdt22)
@@ -58,18 +58,18 @@ Suggestion: Use light mode for better view of PNG files
     - [TCP congestion window evolution](#tcp-congestion-window-evolution)
     - [TCP retransmissions](#tcp-retransmissions)
     - [UDP Mux and Demux](#udp-mux-and-demux)
-    - [TCP Mux and Demux](#tcp-mux-and-demux)</br>
+    - [TCP Mux and Demux](#tcp-mux-and-demux)</br></br>
   - [CHAPTER 4: NETWORK LAYER: DATA PLANE](#chapter-4-network-layer-data-plane)
     - [Longest Prefix Matching](#longest-prefix-matching)
     - [Packet Scheduling](#packet-scheduling)
     - [Subnet Addressing](#subnet-addressing)
     - [Network Address Translation](#network-address-translation)
     - [IPv6 Tunneling and Encapsulation](#ipv6-tunneling-and-encapsulation)
-    - [Openflow Flow Tables](#openflow-flow-tables)</br>
+    - [Openflow Flow Tables](#openflow-flow-tables)</br></br>
   - [CHAPTER 5: NETWORK LAYER: CONTROL PLANE](#chapter-5-network-layer-control-plane)
     - [Dijkstra's Link State Algorithm](#dijkstras-link-state-algorithm)
     - [Dijkstra's Link State Algorithm - Advanced](#dijkstras-link-state-algorithm---advanced)
-    - [Bellman Ford Distance Vector algorithm](#bellman-ford-distance-vector-algorithm)</br>
+    - [Bellman Ford Distance Vector algorithm](#bellman-ford-distance-vector-algorithm)</br></br>
   - [CHAPTER 6: LINK LAYER](#chapter-6-link-layer)
     - [Error Detection and Correction: Two Dimensional Parity](#error-detection-and-correction-two-dimensional-parity)
     - [Error Detection and Correction: Cyclic Redundancy Check](#error-detection-and-correction-cyclic-redundancy-check)
