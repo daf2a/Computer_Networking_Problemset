@@ -26,7 +26,8 @@ source : [https://gaia.cs.umass.edu/kurose\_ross/knowledgechecks/index.php](http
     - [Connection-Oriented Transport: TCP](#connection-oriented-transport-tcp)
     - [Principles of Congestion Control](#principles-of-congestion-control)
     - [TCP Congestion Control](#tcp-congestion-control)
-    - [Evolution of Transport Layer Functionality](#evolution-of-transport-layer-functionality)
+    - [Evolution of Transport Layer Functionality](#evolution-of-transport-layer-functionality)</br>
+
 - [Interactive Implementation](#interactive-implementation)
   - [CHAPTER 1: INTRODUCTION](#chapter-1-introduction-1)
     - [Circuit Switching](#circuit-switching)
