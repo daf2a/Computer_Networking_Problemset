@@ -1,6 +1,6 @@
 # Problem Set for Computer Networking: A Top-Down Approach, 7th Edition
 **Source** : [https://gaia.cs.umass.edu/kurose\_ross/knowledgechecks/index.php](https://gaia.cs.umass.edu/kurose_ross/knowledgechecks/index.php)</br>
-**Suggestion**: Use light mode for better view of PNG files
+**Suggestion** : Use light mode for better view of PNG files
 
 # Table of contents
 
