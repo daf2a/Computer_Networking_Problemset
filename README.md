@@ -29,6 +29,12 @@
     - [Principles of Congestion Control](#principles-of-congestion-control)
     - [TCP Congestion Control](#tcp-congestion-control)
     - [Evolution of Transport Layer Functionality](#evolution-of-transport-layer-functionality)</br></br>
+  - [CHAPTER 4: NETWORK LAYER: DATA PLANE](#chapter-4-network-layer-data-plane)
+    - [Network Layer Overview](#network-layer-overview)
+    - [Whats Inside a Router?](#whats-inside-a-router)
+    - [The Internet Protocol](#the-internet-protocol)
+    - [Generalized Forwarding](#generalized-forwarding)
+    - [Middleboxes and Summary](#middleboxes-and-summary)</br></br>
 
 - [INTERACTIVE IMPLEMENTATION](#interactive-implementation)</br>
   - [CHAPTER 1: INTRODUCTION](#chapter-1-introduction-1)
@@ -59,7 +65,7 @@
     - [TCP retransmissions](#tcp-retransmissions)
     - [UDP Mux and Demux](#udp-mux-and-demux)
     - [TCP Mux and Demux](#tcp-mux-and-demux)</br></br>
-  - [CHAPTER 4: NETWORK LAYER: DATA PLANE](#chapter-4-network-layer-data-plane)
+  - [CHAPTER 4: NETWORK LAYER: DATA PLANE](#chapter-4-network-layer-data-plane-1)
     - [Longest Prefix Matching](#longest-prefix-matching)
     - [Packet Scheduling](#packet-scheduling)
     - [Subnet Addressing](#subnet-addressing)
@@ -872,6 +878,155 @@
     
     QUIC can establish all connection parameters (security, reliability, flow and congestion control)in just one handshake rather than separately in two.As an application-layer protocol, QUIC can be updated/modified at "app frequency" rather than at the frequency of operating system updates.
 
+## **CHAPTER 4: NETWORK LAYER: DATA PLANE**
+
+### [Network Layer Overview](https://gaia.cs.umass.edu/kurose_ross/knowledgechecks/problem.php?c=4&s=1)
+
+- Check all of the statements below about where (in the network) the network layer is implemented that are true.
+    - The network layer is implemented in routers in the network core.
+    - The network layer is implemented in hosts at the network's edge.
+- Consider the travel analogy discussed in the textbook - some actions we take on a trip correspond to **forwarding** and other actions we take on a trip correspond to **routing**.  Which of the following travel actions below correspond to ***forwarding***? The other travel actions that you don't select below then correspond to routing.
+    - A car stops at an intersection to "gas-up" and take a "bathroom break"
+    - A car takes the 3rd exit from a roundabout.
+    - A car waits at light and then turns left at the intersection.
+- For each of the actions below, select those actions below that are primarily in the network-layer data plane. The other actions that you don't select below then correspond to control-plane actions.
+    - Moving an arriving datagram from a router’s input port to output port
+    - Looking up address bits in an arriving datagram header in the forwarding table.
+    - Dropping a datagram due to a congested (full) output buffer.
+- We've seen that there are two approaches towards implementing the network control plane - a per-router control-plane approach and a software-defined networking (SDN) control-plane approach. Which of the following actions occur in a per-router control-plane approach? The other actions that you don't select below then correspond to actions in an SDN control plane.
+    - A router exchanges messages with another router, indicating the cost for it (the sending router) to reach a destination host.
+    - Routers send information about their incoming and outgoing links to other routers in the network.
+- Which of the following quality-of-service guarantees are part of the Internet’s best-effort service model? Check all that apply.
+    - None of the other services listed here are part of the best-effort service model. Evidently, best-effort service really means no guarantees at all!
+
+### [Whats Inside a Router?](https://gaia.cs.umass.edu/kurose_ross/knowledgechecks/problem.php?c=4&s=2)
+
+- Match the names of the principal router components (A,B,C,D below) with their function and whether they are in the network-layer data plane or control plane.
+    
+    ![Alt text](img/knowledge/image.png)
+
+    - A. input ports, operating primarily in the data plane.
+    - B. the switching fabric, operating primarily in the data plane.
+    - C. output ports, operating primarily in the data plane.
+    - D. the routing processor, operating primarily in the control plane.
+- Where in a router is the destination IP address looked up in a forwarding table to determine the appropriate output port to which the datagram should be directed?
+    - At the input port where a packet arrives.
+- Where in a router does "match plus action" happen to determine the appropriate output port to which the arriving datagram should be directed?
+    - At the input port where a packet arrives.
+- Suppose a datagram is switched through the switching fabric and arrives to its appropriate output to find that there are no free buffers. In this case:
+    - The packet will either be dropped or another packet will be removed (lost) from the buffer to make room for this packet, depending on policy. But the packet will definitely not be be sent back to the input port.
+- What is meant by Head of the Line (HOL) blocking?
+    - A queued datagram waiting for service at the front of a queue prevents other datagrams in queue from moving forward in the queue.
+
+### [The Internet Protocol](https://gaia.cs.umass.edu/kurose_ross/knowledgechecks/problem.php?c=4&s=3)
+
+- What are the principal components of the IPv4 protocol (check all that apply)?
+    - IPv4 datagram format.
+    - Packet handling conventions at routers (e.g., segmentation/reassembly)
+    - IPv4 addressing conventions.
+- IPv4 Header
+    - Version field = contains the IP protocol version number
+    - Type-of-service field = contains Explicit Congestion Notification (ECN) and differentiated service bits
+    - Fragmentation offset field = used for datagram fragmentation/reassembly
+    - Time-to-live field = value in this field is decremented at each router; when it reaches zero, the packet must be dropped (this prevents datagrams from looping forever in the network)
+    - Header checksum field = contains the Internet checksum of this datagram's header fields
+    - Upper layer field = contains the "protocol number" for the transport-layer protocol to which the datagram's payload will be multiplexed - UDP or TCP, for example
+    - Payload/data field = contains a UDP or TCP segment
+    - Datagram length field = indicates the total number of bytes in datagram
+- Which of the following statements is true regarding an IP address? (Zero, one or more of the following statements is true).
+    - An IP address is associated with an interface.
+    - If a host has more than one interface, then it has more that one IP address at which it can be reached.
+    - If a router has more than one interface, then it has more that one IP address at which it can be reached.
+- What is meant by an IP subnet? (Check zero, one or more of the following characteristics of an IP subnet).
+    - A set of device interfaces that can physically reach each other without passing through an intervening router.
+    - A set of devices that have a common set of leading high order bits in their IP address.
+- Consider the three subnets in the diagram below.
+    
+    ![Alt text](img/knowledge/image-1.png)
+
+    - What is the maximum # of interfaces in the 223.1.2/24 network?
+        - 256
+    - What is the maximum # of interfaces in the 223.1.3/29 network?
+        - 8
+    - Which of the following addresses can ***not*** be used by an interface in the 223.1.3/29 network? Check all that apply.
+        - 223.1.2.6
+        - 223.1.3.28
+        - 223.1.3.16
+- What is meant by saying that DHCP is a "plug and play" protocol?
+    - No manual configuration is needed for the host to join the network.
+- Which of the following statements about a DHCP request message are true (check all that are true). Hint: check out Figure 4.24 in the 7th and 8th edition of our textbook.
+    - A DHCP request message is sent broadcast, using the 255.255.255.255 IP destination address.
+    - The transaction ID in a DHCP request message will be used to associate this message with future DHCP messages sent from, or to, this client.
+    - A DHCP request message may contain the IP address that the client will use
+- Which of the following fields occur ***ONLY*** in the IPv6 datagram header (i.e., appear in the IPv6 header but not in the IPv4 header)?  Check all that apply.
+    - 128-bit source and destination IP addresses.
+    - The flow label field.
+- What is the purpose of the Dynamic Host Configuration Protocol?
+    - To obtain an IP address for a host attaching to an IP network.
+
+### [Generalized Forwarding](https://gaia.cs.umass.edu/kurose_ross/knowledgechecks/problem.php?c=4&s=4)
+
+- Destination-based forwarding, which we studied in section 4.2, is a specific instance of match+action and generalized forwarding.  Select the phrase below which best completes the following sentence:
+"In destination-based forwarding, ..."
+    - ... after matching on the destination IP address in the datagram header, the action taken is to forward the datagram to the output port associated with that destination IP address.
+- Which of the following match+actions can be taken in the generalized OpenFlow 1.0 match+action paradigm that we studied in Section 4.4? Check all that apply.
+    - ... after matching on the destination IP address in the datagram header, the action taken is to decide whether or not to drop that datagram.
+    - ... after matching on the destination IP address in the datagram header, the action taken is to forward the datagram to the output port associated with that destination IP address.
+    - ... after matching on the source and destination IP address in the datagram header, the action taken is to forward the datagram to the output port associated with that source and destination IP address pair.
+    - ... after matching on the 48-bit link-layer destination MAC address, the action taken is to forward the datagram to the output port associated with that link-layer address.
+    - ... after matching on the port number in the segment's header, the action taken is to decide whether or not to drop that datagram containing that segment.
+    - ... after matching on the port number in the segment's header, the action taken is to forward the datagram to the output port associated with that destination IP address.
+- Which of the following fields in the frame/datagram/segment/application-layer message can be matched in OpenFlow 1.0? Check all that apply.
+    - Source and/or destination port number
+    - Upper layer protocol field
+    - IP type-of-service field
+    - IP destination address
+    - IP source address
+- Consider the figure below that shows the generalized forwarding table in a router. Recall that a * represents a wildcard value. Now consider an arriving datagram with the IP source and destination address fields indicated below. For each source/destination IP address pair, indicate which rule is matched. Note: assume that a rule that is earlier in the table takes priority over a rule that is later in the table and that a datagram that matches none of the table entries is dropped.
+    - _____ Source: 1.2.56.32 Destination:128.116.40.186 = Rule 2, with action *drop*
+    - _____ Source: 65.92.15.27 Destination: 3.4.65.76 = Rule 1, with action *forward(2)*
+    - _____ Source: 10.1.2.3 Destination: 7.8.9.2 = Rule 3, with action *send to controller*
+    - _____ Source: 10.1.34.56 Destination: 54.72.29.90 = No match to any rule.
+- Consider the network below.  We want to specify the match+action rules **at s3** so that only the following network-wide behavior is allowed:
+    1. traffic from 128.119/16 and destined to 137.220/16 is forwarded on the direct link from s3 to s1;
+    2. traffic from 128.119/16 and destined to 67.56/16 is forwarded on the direct link from s3 to s2;
+    3. incoming traffic via port 2 or 3, and destined to 128.119/16 is forwarded to 128.119/16 via local port 1.
+    4. No other forwarding should be allowed. In particular s3 should not forward traffic arriving from 137.220/16 and destined for 67.56/16 and vice versa.
+    
+    From the list of match+action rules below, select the rules to include in s3's flow table to implement this forwarding behavior. Assume that if a packet arrives and finds no matching rule, it is dropped.
+    
+    ![Alt text](img/knowledge/image-2.png)
+
+    - Input port: 2; Dest: 128.119/16 Action: forward(1)
+    - Input port:1 ; Dest: 137.220/16 Action: forward(2)
+    - Input port: 3; Dest: 128.119/16 Action: forward(1)
+    - Input port: 1; Dest: 67.56/16 Action: forward(3)
+- Consider the network below.  We want to specify the match+action rules ***at s3*** so that s3 ***acts only as a relay*** for traffic between 137.220/16 and 67.56/16.  In particular s3 should not accept/forward and traffic to/from 128.119/16.
+    
+    From the list of match+action rules below, select the rules to include in s3's flow table to implement this forwarding behavior. Assume that if a packet arrives and finds no matching rule, it is dropped.
+    
+    ![Alt text](img/knowledge/image-3.png)
+
+    - Input port: 2; Dest: 67.56/16 Action: forward(3)
+    - Input port: 3; Dest: 137.220/16 Action: forward(2)
+- What is meant by generalized forwarding (as opposed to destination-based forwarding) in a router or switch?
+    - Any of several actions (including drop (block), forward to a given interface, or duplicate-and-forward) can be made based on the contents of one or more packet header fields.
+
+### [Middleboxes and Summary](https://gaia.cs.umass.edu/kurose_ross/knowledgechecks/problem.php?c=4&s=5)
+
+- Which of the following network devices can be thought of as a "middlebox"? Check all that apply.
+    - HTTP load balancer
+    - HTTP cache
+    - Network Address Translation box
+- What protocol (or protocols) constitutes the "thin waist" of the Internet protocol stack? Check all that apply.
+    - IP
+- Which of the statements below are true statements regarding the "end-to-end principle"? Check all that apply.
+    - The end-to-end argument advocates placing functionality at the network edge because some functionality cannot be completely and correctly implemented in the network, and so needs to be placed at the edge in any case, making in-network implementation redundant.
+    - The end-to-end argument allows that some redundant functionality might be placed both in-network and at the network edge in order to enhance performance.
+- What is meant when it is said that the Internet has an “hourglass” architecture? See the picture below if you are unfamiliar with an "hourglass".
+    - The Internet protocol stack has a “thin waist” in the middle, like an hourglass. The Internet Protocol (IP) is the only network-layer protocol in the middle layer of the stack. Every other layer has multiple protocols at that layer.
+- In the US, which of the following services has been regulated by the Federal Communications Commission (FCC) going back into the 20th century?
+    - Telecommunication services.
 
 # Interactive Implementation
 
